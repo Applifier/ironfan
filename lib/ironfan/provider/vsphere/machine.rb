@@ -44,6 +44,8 @@ module Ironfan
           return nil
         end
 
+        def connect_hostname ; public_hostname ; end
+
         def destroy
           adaptee.PowerOffVM_Task.wait_for_completion unless adaptee.runtime.powerState == "poweredOff"
           adaptee.Destroy_Task.wait_for_completion

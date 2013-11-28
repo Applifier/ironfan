@@ -49,6 +49,17 @@ module Ironfan
         def public_hostname  ; dns_name ; end
         def keypair          ; key_pair ; end
 
+        #
+        # Return hostname or ip address which is used when connecting to the server
+        #
+        def connect_hostname
+          if dns_name.nil?
+            return private_ip_address
+          else
+            return dns_name
+          end
+        end
+
         def created?
           not ['terminated', 'shutting-down'].include? state
         end

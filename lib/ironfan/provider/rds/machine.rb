@@ -19,7 +19,8 @@ module Ironfan
         end
 
         def public_hostname  ; dns_name ; end
- 
+        def connect_hostname ; public_hostname ; end
+
         def created?
           not ['terminated', 'shutting-down'].include? state
         end
